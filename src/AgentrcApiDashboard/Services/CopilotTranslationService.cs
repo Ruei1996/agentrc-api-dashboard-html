@@ -35,6 +35,7 @@ public sealed class CopilotTranslationService
             await using var session = await client.CreateSessionAsync(new SessionConfig
             {
                 Model = model,
+                OnPermissionRequest = PermissionHandler.ApproveAll,
                 SystemMessage = new SystemMessageConfig
                 {
                     Content =
